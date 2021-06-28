@@ -1,0 +1,48 @@
+TEST:
+
+// 0. Insert() di un Documento senza errori, che ha documenti corrispondenti al suo lineNumber in LinesEnhanced
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsys",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-05-01"),  "blkEnquiredTrEnd" : ISODate("2019-05-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 1. campo mancante.
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-05-01"),  "blkEnquiredTrEnd" : ISODate("2019-05-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 2. string maggiore di 
+blkSubSys 10
+blkCodOpr 12
+lineNumber 20
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsyspopop",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-05-01"),  "blkEnquiredTrEnd" : ISODate("2019-05-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 3. blkEnquiredTrStart is not a date. 
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsys",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : "ciao",  "blkEnquiredTrEnd" : ISODate("2019-05-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 4. blkEnquiredTrEnd is not a date. 
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsys",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-05-01"),  "blkEnquiredTrEnd" : "bella",  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 5. TrStart > TrEnd
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsys",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-05-01"),  "blkEnquiredTrEnd" : ISODate("2019-04-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 6. trStart più vecchio di 6 mesi fa.
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsys",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-01-01"),  "blkEnquiredTrEnd" : ISODate("2019-05-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 7. trStart nel futuro
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsys",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3356763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-11-01"),  "blkEnquiredTrEnd" : ISODate("2019-05-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })
+
+
+// 8. Utenza non trovata
+
+db.LinesEnquiredLog.insert({ "metaData" : {  "docType" : "Log",  "docVer" : "1.0",  "docVerDate" : ISODate("2019-07-19T10:34:25.777Z") }, "data" : {  "blkOprType" : "B",  "blkSubSys" : "Subsys",  "blkCodOpr" : "Operatore",  "blkCodEse" : "CodEse",  "lineNumber" : "3326763419",  "eventDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkEnquiredTrStart" : ISODate("2019-05-01"),  "blkEnquiredTrEnd" : ISODate("2019-05-10"),  "blkDate": ISODate("2019-07-15T00:00:00.000+00:00"),  "blkCopyDateStart" : ISODate("2019-07-13T10:22:31.399Z"),  "blkCopyDateEnd" : ISODate("2019-07-13T10:22:35.399Z"),  "blkCopiedDocs" : 50,  "blkCopiedCdrs" : 2500,  "blkStatus" : 1,  "blkErrCod" : "-501",  "blkErrDes" : "error during copy" } })

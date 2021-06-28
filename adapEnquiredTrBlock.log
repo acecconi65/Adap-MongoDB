@@ -1,0 +1,37 @@
+
+[2019-12-17 15:51] ADaP – Servizio di Sblocco Traffico v1.0 – inizio:
+
+[2019-12-17 15:51:11] Connecting to localhost:27017
+
+[2019-12-17 15:51:11] LinesEnquiredLog: trovata richiesta di blocco NON valida _id 5df8e9e2e0bc578e930ad994 ERRORE: Formato input errato blkSubSys non valorizzato
+
+
+[2019-12-17 15:51:11] LinesEnquiredLog: non trovata alcuna richiesta di blocco
+
+[2019-12-17 15:51:11] ADaP – Servizio di Sblocco Traffico – fine
+
+[2019-12-17 15:57] ADaP – Servizio di Sblocco Traffico v1.0 – inizio:
+
+[2019-12-17 15:57:04] Connecting to localhost:27017
+
+[2019-12-17 15:57:04] LinesEnquiredLog: non trovata alcuna richiesta di blocco
+
+[2019-12-17 15:57:04] ADaP – Servizio di Sblocco Traffico – fine
+
+[2019-12-17 16:09] ADaP – Servizio di Sblocco Traffico v1.0 – inizio:
+
+[2019-12-17 16:09:23] Connecting to localhost:27017
+
+
+
+[2019-12-17 16:15] ADaP – Servizio di Sblocco Traffico v1.0 – inizio:
+
+[2019-12-17 16:15:27] Connecting to localhost:27017
+
+
+
+[2019-12-17 16:15:27] LinesEnquiredLog: trovata richiesta di blocco valida _id: 5df8ef1ae0bc578e930ad997 (utenza: 3334445555, data dal: 2019-07-31 22:00:00, data al: 2019-08-28 22:00:00)
+
+[2019-12-17 16:15:27] blocco traffico eseguito con successo
+
+[2019-12-17 16:15:27] ADaP – Servizio di Sblocco Traffico – fine
